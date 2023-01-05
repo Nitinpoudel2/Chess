@@ -95,4 +95,5 @@ def drawBoard(screen):
             color = colors[(r + c)%2]
             p.draw.rect(screen, color, p.Rect(c*SQ_SIZE, r*SQ_SIZE, SQ_SIZE, SQ_SIZE))
 if __name__ == "__main__":
+
     main()
