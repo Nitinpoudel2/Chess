@@ -4,19 +4,19 @@ name: chessgame
 
 jobs:
   deploy:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Login to Azure
       uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Checkout source code
-        uses: actions/checkout@v2
+    - name: Checkout source code
+      uses: actions/checkout@v2
 
-      - name: Deploy main
-          uses: azure/CLI@v1
-          with:
-            inlineScript: |
-              chmod +x $GITHUB_WORKSPACE/sampleScript.sh
-              $GITHUB_WORKSPACE/sampleScript.sh
+    - name: Deploy main
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+            chmod +x $GITHUB_WORKSPACE/sampleScript.sh
+            $GITHUB_WORKSPACE/sampleScript.sh
